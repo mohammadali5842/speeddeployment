@@ -22,21 +22,21 @@ spec:
     spec:
       containers:
         - name: speed
-          image: mohommadali/speed:1.0
+          image: mohommadali/speed:2.0
           ports:
             - name: tomcatport
               containerPort: 8080
               protocol: TCP
           readinessProbe:
             httpGet:
-              path: /speed/health/readiness.htm
+              path: /health/readiness.htm
               port: 8080
             initialDelaySeconds: 15
             timeoutSeconds: 15
             failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: /speed/health/readiness.htm
+              path: /health/readiness.htm
               port: 8080
             initialDelaySeconds: 15
             timeoutSeconds: 15
