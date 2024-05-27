@@ -9,19 +9,19 @@ spec:
       app: speed
       version: "1.0"
   strategy:
-    type: Recreate  
+    type: Recreate
   selector:
     matchLabels:
       app: speed
       version: "1.0"
   template:
-    metadata:
+    metadata: 
       labels:
         app: speed
         version: "1.0"
     spec:
       containers:
-        - name: speed
+        - name: speedcontainer
           image: mohommadali/speed:2.0
           ports:
             - name: tomcatport
@@ -29,36 +29,22 @@ spec:
               protocol: TCP
           readinessProbe:
             httpGet:
-              path: /health/readiness.htm
+              path: /speed/health/readiness.htm
               port: 8080
             initialDelaySeconds: 15
             timeoutSeconds: 15
             failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: /health/liveness.htm
+              path: /speed/health/liveness.htm
               port: 8080
             initialDelaySeconds: 15
             timeoutSeconds: 15
-            failureThreshold: 3 
+            failureThreshold: 3
           resources:
             requests:
-              cpu: "500m"
-              memory: "500Mi"
-            limits:
-              cpu: "500m"
-              memory: "1000Mi"                     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              cpu: 500m
+              memory: 512Mi
+            limits:  
+              cpu: 1
+              memory: 1024Mi
