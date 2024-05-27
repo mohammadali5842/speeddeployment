@@ -9,7 +9,7 @@ spec:
       app: speed
       version: "1.0"
   strategy:
-    type: recreate  
+    type: Recreate  
   selector:
     matchLabels:
       app: speed
