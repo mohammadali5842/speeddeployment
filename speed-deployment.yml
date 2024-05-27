@@ -32,16 +32,16 @@ spec:
               path: /speed/health/readiness.htm
               port: 8080
             initialDelaySeconds: 15
-            timeoutSecond: 15
+            timeoutSeconds: 15
             failureThreshold: 3
           livenessProbe:
             httpGet:
               path: /speed/health/readiness.htm
               port: 8080
             initialDelaySeconds: 15
-            timeoutSecond: 15
+            timeoutSeconds: 15
             failureThreshold: 3 
-          resoures:
+          resources:
             requests:
               cpu: "500m"
               memory: "500Mi"
