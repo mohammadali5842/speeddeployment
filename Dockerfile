@@ -15,7 +15,7 @@ RUN rm openjdk-11.0.2_linux-x64_bin.tar.gz
 RUN tar -xvzf apache-tomcat-9.0.89.tar.gz
 RUN rm apache-tomcat-9.0.89.tar.gz
 
-COPY target/speed.war TOMCAT_HOME/webapps/
+COPY target/speed.war ${TOMCAT_HOME}/webapps/
 COPY run.sh /tmp/
 
 RUN chmod u+x /tmp/run.sh
