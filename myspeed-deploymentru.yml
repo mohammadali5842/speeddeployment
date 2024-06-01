@@ -16,7 +16,7 @@ spec:
   template: 
     metadata: 
       labels:
-        apps: speed
+        app: speed
         version: v1
     spec: 
       containers:  
