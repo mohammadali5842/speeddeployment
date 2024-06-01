@@ -1,5 +1,5 @@
-appVerson: apps/v1
-kind : Deployment
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: speeddeployment
 spec:
@@ -8,11 +8,15 @@ spec:
     matchLabels:
       app: speed
       version: v1
-  strategy: RollingUpdate    
+  strategy: 
+    type: RollingUpdate 
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template: 
     metadata: 
       labels:
-        apps: speed
+        app: speed
         version: v1
     spec: 
       containers:  
@@ -26,7 +30,7 @@ spec:
             httpGet:
               path: /speed/health/readiness.htm  
               port: 8080
-            initialDelaySecons: 20
+            initialDelaySeconds: 20
             timeoutSeconds: 15
             failureThreshold: 3
           livenessProbe:
