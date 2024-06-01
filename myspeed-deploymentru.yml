@@ -30,7 +30,7 @@ spec:
             httpGet:
               path: /speed/health/readiness.htm  
               port: 8080
-            initialDelaySecons: 20
+            initialDelaySeconds: 20
             timeoutSeconds: 15
             failureThreshold: 3
           livenessProbe:
