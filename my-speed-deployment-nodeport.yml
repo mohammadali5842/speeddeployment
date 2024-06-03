@@ -4,10 +4,10 @@ metadata:
   name: speeddeployment
 spec:
   replicas: 2
-    selector:
-      matchLabels:
-        app: speed
-        version: "1.0"
+  selector:
+    matchLabels:
+      app: speed
+      version: "1.0"
   template:  
     metadata: 
       labels:
