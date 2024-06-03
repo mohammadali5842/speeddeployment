@@ -20,7 +20,7 @@ spec:
         app: speed
         version: "1.0"
     spec:
-      container:
+      containers:
       - name: speed
         image: mohommadali/speed:4.0
         ports:
