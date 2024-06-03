@@ -8,6 +8,12 @@ spec:
     matchLabels:
       app: speed
       version: "1.0"
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: speed
+      version: "1.0"
   template:  
     metadata: 
       labels:
@@ -17,9 +23,9 @@ spec:
       - name: speed
         image: mohommadali/speed:4.0
         ports:
-          name: tomcatport
-          containerPort: 8080
-          protocol: TCP
+          - name: tomcatport
+            containerPort: 8080
+            protocol: TCP
         readinessProbe: 
           httpGet:
             port: 8080
