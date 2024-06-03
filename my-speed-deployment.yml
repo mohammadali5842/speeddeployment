@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speeddeployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: speed
+      version: "1.0"
+  template:  
+    metadata: 
+      labels:
+        app: speed
+        version: "1.0"
+    spec:
+      - name: speed
+        image: mohommadali/speed:4.0
+        ports:
+          name: tomcatport
+          containerPort: 8080
+          protocol: TCP
+        readinessProbe: 
+          httpGet:
+            port: 8080
+            path: speed/health/readiness.htm
+          initialDelaySeconds: 20
+          timeoutSeconds: 15
+          failureThreshold: 3
+        livenessProbe: 
+          httpGet:
+            port: 8080
+            path: speed/health/liveness.htm
+          initialDelaySeconds: 20
+          timeoutSeconds: 15
+          failureThreshold: 3
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "500Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"          
+               
+                 
