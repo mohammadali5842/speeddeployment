@@ -15,7 +15,7 @@ spec:
         version: "1.0"
     spec:
       - name: speed
-        image: mohommadali/speed:4.0
+        image: mohammadali222/speeddeployment:1.0
         ports:
           name: tomcatport
           containerPort: 8080
